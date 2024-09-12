@@ -1,38 +1,56 @@
 .App {
   text-align: center;
+  
+}
+.game-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ 
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+p{
+  font-size: 30px;
+  font-weight: 200;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.word-input {
+  --w: 1ch;   /* control the width for each letter */
+  --g: .15em; /* the gap between letters */
+  --b: 2px;   /* the border thickness */
+  --n: 5;     /* the number of letters */
+  --c: #888;
+  font-size: 70px;
+  line-height: 1.5; /* control the height */
+  letter-spacing: var(--w);
+  font-family: monospace;
+  width: calc(var(--n)*(1ch + var(--w)));
+  padding-left: calc((var(--w) - var(--g))/2);
+  clip-path: inset(0 calc(var(--w)/2) 0 0);
+  background:
+    repeating-linear-gradient(90deg,
+      var(--c) 0 var(--b),#0000 0 calc(1ch + var(--w) - var(--g) - var(--b)),
+      var(--c) 0 calc(1ch + var(--w) - var(--g)),#0000 0 2ch),
+    conic-gradient(at calc(100% - var(--g) - 1px) var(--b),#0000 75%,var(--c) 0) 
+     0 0/calc(1ch + var(--w)) calc(100% - var(--b));
+  border: none;
+  outline: 0;
+  
 }
+
+
